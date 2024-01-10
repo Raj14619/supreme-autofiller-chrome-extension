@@ -4,6 +4,7 @@ chrome.runtime.onMessage.addListener(
             document.getElementById("TextField0").value = request.firstname;
             document.getElementById("TextField1").value = request.lastname;
             document.getElementById("email").value = request.email;
+            document.getElementById("shipping-address1").value = request.address;
             /*
             document.getElementById("order_email").value = request.email;
             document.getElementById("order_tel").value = request.telephone;

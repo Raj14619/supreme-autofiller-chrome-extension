@@ -4,7 +4,8 @@ document.getElementById('autofill').addEventListener('click', () =>{
       chrome.tabs.sendMessage(tabs[0].id, {
         firstname: document.getElementById('first_name').value,
         lastname: document.getElementById('last_name').value,
-        email: document.getElementById('email').value
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value
         
         /*email: document.getElementById('email').value,
         telephone: document.getElementById('telephone').value,
@@ -28,7 +29,8 @@ document.getElementById('save').addEventListener('click', () => {
       chrome.storage.sync.set({
         firstname: document.getElementById('first_name').value,
         lastname: document.getElementById('last_name').value,
-        email: document.getElementById('email').value
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value
       }, function() {
         console.log("Saved")
       })
@@ -39,11 +41,13 @@ document.getElementById('load').addEventListener('click', () => {
   chrome.storage.sync.get([
       'firstname',
       'lastname',
-      'email'
+      'email',
+      'address'
   ], function(result) {
     document.getElementById('first_name').value = result.firstname,
     document.getElementById('last_name').value = result.lastname,
-    document.getElementById('email').value = result.email
+    document.getElementById('email').value = result.email,
+    document.getElementById('address').value = result.address
   })
 })
 
