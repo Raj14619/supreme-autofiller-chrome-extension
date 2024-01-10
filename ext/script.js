@@ -5,7 +5,9 @@ document.getElementById('autofill').addEventListener('click', () =>{
         firstname: document.getElementById('first_name').value,
         lastname: document.getElementById('last_name').value,
         email: document.getElementById('email').value,
-        address: document.getElementById('address').value
+        address: document.getElementById('address').value,
+        city: document.getElementById('city').value,
+        postcode: document.getElementById('postcode').value
         
         /*email: document.getElementById('email').value,
         telephone: document.getElementById('telephone').value,
@@ -30,7 +32,10 @@ document.getElementById('save').addEventListener('click', () => {
         firstname: document.getElementById('first_name').value,
         lastname: document.getElementById('last_name').value,
         email: document.getElementById('email').value,
-        address: document.getElementById('address').value
+        address: document.getElementById('address').value,
+        city: document.getElementById('city').value,
+        postcode: document.getElementById('postcode').value
+
       }, function() {
         console.log("Saved")
       })
@@ -42,12 +47,17 @@ document.getElementById('load').addEventListener('click', () => {
       'firstname',
       'lastname',
       'email',
-      'address'
+      'address',
+      'city',
+      'postcode'
   ], function(result) {
     document.getElementById('first_name').value = result.firstname,
     document.getElementById('last_name').value = result.lastname,
     document.getElementById('email').value = result.email,
-    document.getElementById('address').value = result.address
+    document.getElementById('address').value = result.address,
+    document.getElementById('city').value = result.city,
+    document.getElementById('postcode').value = result.postcode
+
   })
 })
 
