@@ -7,6 +7,7 @@ chrome.runtime.onMessage.addListener(
             document.getElementById("shipping-address1").value = request.address;
             document.getElementById("TextField2").value = request.city;
             document.getElementById("TextField3").value = request.postcode;
+            document.getElementById("TextField4").value = request.phone;
 
             /*
             document.getElementById("order_email").value = request.email;
