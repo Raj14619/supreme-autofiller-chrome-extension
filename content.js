@@ -2,6 +2,8 @@ chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         try {
             document.getElementById("TextField0").value = request.firstname;
+            document.getElementById("TextField1").value = request.lastname;
+            document.getElementById("email").value = request.email;
             /*
             document.getElementById("order_email").value = request.email;
             document.getElementById("order_tel").value = request.telephone;

@@ -1,11 +1,12 @@
-document.getElementById("autofill").addEventListener("click", () =>{
+document.getElementById('autofill').addEventListener('click', () =>{
     /* AUTOFILL FORM*/
     chrome.tabs.query({active: true, currentWindow:true}, function(tabs){
       chrome.tabs.sendMessage(tabs[0].id, {
-        firstname: document.getElementById('first_name').value
-        /*
+        firstname: document.getElementById('first_name').value,
         lastname: document.getElementById('last_name').value,
-        email: document.getElementById('email').value,
+        email: document.getElementById('email').value
+        
+        /*email: document.getElementById('email').value,
         telephone: document.getElementById('telephone').value,
         address1: document.getElementById('address_1').value,
         address2: document.getElementById('address_2').value,
@@ -18,7 +19,33 @@ document.getElementById("autofill").addEventListener("click", () =>{
         cvv: document.getElementById('card_cvv').value,
         */
       }, function(response){
-        console.log(response.status)
-    })  
-    })
+
+      });  
+    });
+  });
+    
+document.getElementById('save').addEventListener('click', () => {
+      chrome.storage.sync.set({
+        firstname: document.getElementById('first_name').value,
+        lastname: document.getElementById('last_name').value,
+        email: document.getElementById('email').value
+      }, function() {
+        console.log("Saved")
+      })
+}) 
+
+  
+document.getElementById('load').addEventListener('click', () => {
+  chrome.storage.sync.get([
+      'firstname',
+      'lastname',
+      'email'
+  ], function(result) {
+    document.getElementById('first_name').value = result.firstname,
+    document.getElementById('last_name').value = result.lastname,
+    document.getElementById('email').value = result.email
+  })
 })
+
+
+document.URL
